@@ -1,0 +1,20 @@
+[
+	{
+		"text": "Player:\nI could use this old hand car to get to school, but the handle seems to have gone missing.",
+		"buttons":[
+			{
+				"text":">>>>>",
+				"target":1
+			}
+		]
+	},
+	{
+		"text": "Player:\nI should take a look around, maybe I could find it.",
+		"buttons":[
+			{
+				"text":"Ok!",
+				"target":-1
+			}
+		]
+	}
+]

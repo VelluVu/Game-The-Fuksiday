@@ -1,0 +1,104 @@
+[
+	{
+		"text": "Store owner:\nHello, and welcome to Tools and Things!",
+		"buttons":[
+			{
+				"text":">>>>>",
+				"target":1
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nWe have a special offer available only today. Everybody gets a free jumpsuit! They are available in three colors. Which color would you like?",
+		"buttons":[
+			{
+				"text":"Orange",
+				"target":3
+			},
+			{
+				"text":"Blue",
+				"target":4
+			},
+			{
+				"text":"Green",
+				"target":5
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nWhich color would you like?",
+		"buttons":[
+			{
+				"text":"Orange",
+				"target":3
+			},
+			{
+				"text":"Blue",
+				"target":4
+			},
+			{
+				"text":"Green",
+				"target":5
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nThe orange jumpsuit will protect you from fire and heat. Would you like this color?",
+		"buttons":[
+			{
+				"text":"Yes please!",
+				"target":6
+			},
+			{
+				"text":"Nah",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nThe blue jumpsuit will protect you from radiation and hazardous chemicals. Would you like this color?",
+		"buttons":[
+			{
+				"text":"Yes please!",
+				"target":7
+			},
+			{
+				"text":"Nah",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nThe green jumpsuit will offer some protection from melee damage. Would you like this color?",
+		"buttons":[
+			{
+				"text":"Yes please!",
+				"target":6
+			},
+			{
+				"text":"Nah",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nSorry, but we are actually completely out of this color. Go ahead and pick a different color.",
+		"buttons":[
+			{
+				"text":"Ok",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Store owner:\nHere you go, a blue jumpsuit. Thank you and come again!",
+		"buttons":[
+			{
+				"text":"Yay!",
+				"target":-1,
+				"result":"jumpsuit"
+			}
+		]
+	}
+
+]

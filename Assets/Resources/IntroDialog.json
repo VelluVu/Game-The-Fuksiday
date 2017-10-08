@@ -1,0 +1,11 @@
+[
+	{
+		"text": "Player:\nLooks like it's time to head to school!",
+		"buttons":[
+			{
+				"text":"Let's go!",
+				"target":-1
+			}
+		]
+	}
+]

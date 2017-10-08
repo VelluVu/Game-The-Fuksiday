@@ -1,0 +1,11 @@
+[
+	{
+		"text": "Player:\nThat worked! Now all I need to do is walk left until I see the school.",
+		"buttons":[
+			{
+				"text":"Yep.",
+				"target":-1
+			}
+		]
+	}
+]

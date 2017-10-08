@@ -1,0 +1,11 @@
+[
+	{
+		"text": "Player:\nHmm... It looks like a large green pile of highly radioactive goo is blocking my way. I will need to find a way to get past it safely.",
+		"buttons":[
+			{
+				"text":"Yep.",
+				"target":-1
+			}
+		]
+	}
+]

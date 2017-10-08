@@ -1,0 +1,64 @@
+[
+	{
+		"text": "Hello World!",
+		"buttons":[
+			{
+				"text":"Joo",
+				"target":1
+			},
+			{
+				"text":"Ei!!",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Hyvä juttu, painoit joo",
+		"buttons":[
+			{
+				"text":"Aha",
+				"target":-1
+			}
+		]
+	},
+	{
+		"text": "Oletko ihan varma että ei?",
+		"buttons":[
+			{
+				"text":"Kyllä olen",
+				"target":4
+			},
+			{
+				"text":"En sittenkään",
+				"target":3
+			}
+		]
+	},
+	{
+		"text": "Eli sittenkin joo?",
+		"buttons":[
+			{
+				"text":"Kyllä, joo!",
+				"target":1
+			},
+			{
+				"text":"Hmmmmmm ei.",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Valitsit ei. Oletko nyt tyytyväinen?",
+		"buttons":[
+			{
+				"text":"Joo!",
+				"target":1
+			},
+			{
+				"text":"En",
+				"target":-1
+			}
+		]
+	}
+
+]
