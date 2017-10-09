@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/menu.unity
     guid: fbf48189375167e4597201dbac9ba65d
   - enabled: 1
+    path: Assets/Intro.unity
+    guid: a6109c857abb09b4e9f7b36716fe4697
+  - enabled: 1
     path: Assets/GameWorld.unity
     guid: 481c0679a440feb48acfef53241e7f08

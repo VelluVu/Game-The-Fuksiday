@@ -1,0 +1,39 @@
+[
+	{
+		"text": "Tutor:\nHey there! Welcome to Metropolia.",
+		"buttons":[
+			{
+				"text":"Hi.",
+				"target":1
+			}
+		]
+	},
+	{
+		"text": "Tutor:\nWe have a little situation going on here. You see, those mutated creatures are coming from somewhere...",
+		"buttons":[
+			{
+				"text":"Mutated creatures??",
+				"target":2
+			}
+		]
+	},
+	{
+		"text": "Tutor:\nYes those green things with weird looks. Your first task as a student is to figure out how to get rid of them.",
+		"buttons":[
+			{
+				"text":"I'll see what I can do!",
+				"target":3
+			}
+		]
+	},
+	{
+		"text": "Player:\nThere is a lot of junk lying around here. There might be a way to make some weaponry.",
+		"buttons":[
+			{
+				"text":"Go look for things.",
+				"target":-1
+			}
+		]
+	}
+
+]

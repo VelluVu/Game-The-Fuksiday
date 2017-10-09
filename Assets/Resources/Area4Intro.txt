@@ -1,0 +1,11 @@
+[
+	{
+		"text": "Player:\This place is full of these creatures.",
+		"buttons":[
+			{
+				"text":"Eek!",
+				"target":-1
+			}
+		]
+	}
+]

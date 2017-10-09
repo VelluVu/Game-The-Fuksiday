@@ -15,6 +15,7 @@ public class Item : MonoBehaviour {
 	public static int JESUSTAPE = 5;
 	public static int TOILETPAPERROLL = 6;
 	public static int JUMPSUIT = 7;
+	public static int BOW = 8;
 
 	public Item(int id, string name) {
 		this.id = id;

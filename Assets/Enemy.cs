@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+
 	public Transform Player;
+
+	public Enemy mutantCat;
+
 	private float speed = 2f;
-	//private float attack = 10f;
-	Enemy mutantCat;
 	private float sinTimer;
 	private Rigidbody2D rigidBody;
 	private float thrust;
 
-
+	void Awake() {
+		
+	}
 	void Start() {
 		Player = GameObject.Find ("Player").transform;
 		rigidBody = GetComponent<Rigidbody2D>();
@@ -30,12 +34,7 @@ public class Enemy : MonoBehaviour {
 	// Trying to make enemy deal 10 damage each time collides with player.
 	public void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.gameObject.tag == "Player")
+			collision.gameObject.SendMessage ("TakeDamage", 10, SendMessageOptions.DontRequireReceiver);
 			Debug.Log ("enemy hit player");
-
-
-
-		
-
-		
 	}
 }

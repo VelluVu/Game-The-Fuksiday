@@ -8,6 +8,8 @@ TagManager:
   - WorldPortal
   - Trigger
   - Enemy
+  - SwordAttack
+  - Tutor
   layers:
   - Default
   - TransparentFX

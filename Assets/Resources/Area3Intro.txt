@@ -1,0 +1,20 @@
+[
+	{
+		"text": "Player:\nWow, the school looks exciting. Looks like there are people in here!",
+		"buttons":[
+			{
+				"text":">>>>>",
+				"target":1
+			}
+		]
+	},
+	{
+		"text": "Player:\nI should go talk to the tutor.",
+		"buttons":[
+			{
+				"text":">>>>>",
+				"target":-1
+			}
+		]
+	}
+]

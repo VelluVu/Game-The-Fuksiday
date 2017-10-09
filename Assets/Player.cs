@@ -12,10 +12,22 @@ public class Player : MonoBehaviour
 	public float playerSpeedX = 0f;
 	public float playerSpeedY = 0f;
 
+	public float meleeRange;
+	public int meleeDamage;
 
+	public AudioClip LootSound;
+	public AudioClip shootSound;
+	public AudioClip swordSound;
+	private AudioSource source;
+
+	public bool directionL = false;
+	public bool directionR = false;
+	public bool directionU = false;
+	public bool directionD = false;
 
 	GameObject healthBar;
 	Button strike;
+	Button shoot;
 	GameObject oilCan;
 	GameObject wrench;
 	GameObject lever;
@@ -26,16 +38,18 @@ public class Player : MonoBehaviour
 	GameObject gunPowder;
 	GameObject jesusTape;
 	GameObject toiletPaperRoll;
+	GameObject bow;
+	public GameObject arrow;
 	static List<Item> inventory;
 	Health health;
+	public string direction = "left";
 
 	private bool alive = true;
 	private bool attack;
+	private bool rangedAttack;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
 	private Animator anim;
-
-	public Collider2D attackRange;
 	// Use this for initialization
 	void awake ()
 	{
@@ -44,7 +58,9 @@ public class Player : MonoBehaviour
 
 	void Start ()
 	{
-
+		source = GetComponent<AudioSource> ();
+		shoot = GameObject.Find ("ButtonRanged").GetComponent<Button> ();
+		shoot.onClick.AddListener (HandleRanged);
 		inventory = new List <Item> ();
 		rb = GetComponent<Rigidbody2D> ();
 		player = GameObject.Find ("Player");
@@ -59,11 +75,11 @@ public class Player : MonoBehaviour
 		greenGoo = GameObject.Find ("GreenGoo");
 		gunPowder = GameObject.Find ("GunPowder");
 		jesusTape = GameObject.Find ("JesusTape");
+		bow = GameObject.Find ("MirkWoodBow");
 		toiletPaperRoll = GameObject.Find ("ToiletPaperRoll");
 		sword = GameObject.Find ("Sword");
 		anim = GetComponent<Animator> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
-		attackRange.enabled = false;
 	}
 
 	public Health GetHealth ()
@@ -140,6 +156,7 @@ public class Player : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.CompareTag ("Pick Up")) {
+			source.PlayOneShot (LootSound, 1F);
 			//Add item to list inventory
 			AddToInventory (other.gameObject.GetComponent<Item> ());
 			other.gameObject.SetActive (false);
@@ -181,12 +198,34 @@ public class Player : MonoBehaviour
 
 
 	private void HandleAttacks ()
-	{
+	{//melee attack
 		if (attack) {
+			source.PlayOneShot (swordSound, 1F);
 			anim.SetTrigger ("Attack");
+			Collider2D[] hitObjects = Physics2D.OverlapCircleAll (transform.position, meleeRange);
+			if (hitObjects.Length > 1) {
+				hitObjects [1].SendMessage ("EnemyTakeDamage", meleeDamage, SendMessageOptions.DontRequireReceiver);
+				Debug.Log ("Hit " + hitObjects [1].name);
+			}
+		}
+	//ranged attack
+		if (rangedAttack) {
+			source.PlayOneShot (shootSound, 1F);
+			GameObject newArrow = Instantiate (arrow, transform.position, transform.rotation);
+			if (directionD == true) {
+				newArrow.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (0f, -100f));
+			}
+			if (directionU == true) {
+				newArrow.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (0f, 100f));
+			}
+			if (directionR == true) {
+				newArrow.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (100f,0f));
+			}
+			if (directionL == true) {
+				newArrow.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (-100f, 0f));
+			}
 		}
 	}
-
 
 	private void HandleInput ()
 	{
@@ -196,6 +235,16 @@ public class Player : MonoBehaviour
 		} else {
 			attack = false;
 			Debug.Log ("You have no weapon");
+		}
+	}
+	private void HandleRanged ()
+	{
+		if (Player.HasItem (Item.BOW)) {
+			rangedAttack = true;
+			Debug.Log ("You shoot arrow");
+		} else {
+			rangedAttack = false;
+			Debug.Log ("You have no bow");
 		}
 	}
 
@@ -219,24 +268,43 @@ public class Player : MonoBehaviour
 		if (Input.GetPressed (Input.LEFT)) {
 			if (playerSpeedX >= -playerMaxSpeed) {
 				playerSpeedX -= (acceleration * Time.deltaTime);
+				directionD = false;
+				directionU = false;
+				directionR = false;
+				directionL = true;
 				//player.transform.Translate (-playerSpeed, 0, 0);
 			}
-		}
+		} 
 		if (Input.GetPressed (Input.RIGHT)) {
+			
 			if (playerSpeedX <= playerMaxSpeed) {
 				playerSpeedX += (acceleration * Time.deltaTime);
+				directionD = false;
+				directionU = false;
+				directionL = false;
+				directionR = true;
 				//	player.transform.Translate (playerSpeed, 0, 0);
 			}
-		}
+		} 
 		if (Input.GetPressed (Input.UP)) {
+			
 			if (playerSpeedY <= playerMaxSpeed) {
 				playerSpeedY += (acceleration * Time.deltaTime);
+				directionD = false;
+				directionL = false;
+				directionR = false;
+				directionU = true;
 				//player.transform.Translate (0, playerSpeed, 0);
 			}
-		}
+		} 
 		if (Input.GetPressed (Input.DOWN)) {
+			
 			if (playerSpeedY >= -playerMaxSpeed) {
 				playerSpeedY -= (acceleration * Time.deltaTime); 
+				directionL = false;
+				directionU = false;
+				directionR = false;
+				directionD = true;
 			}
 		}
 
@@ -258,7 +326,10 @@ public class Player : MonoBehaviour
 		player.transform.Translate (playerSpeedX * Time.deltaTime, playerSpeedY * Time.deltaTime, 0);
 	}
 
+
+
 	private void ResetValues () {
 		attack = false;
+		rangedAttack = false;
 	}
 }

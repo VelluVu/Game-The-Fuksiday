@@ -1,0 +1,20 @@
+[
+	{
+		"text": "Player:\nSo this is where the mutated creatures were coming from. There is a huge hole in the wall!",
+		"buttons":[
+			{
+				"text":">>>>>",
+				"target":1
+			}
+		]
+	},
+	{
+		"text": "Player:\nI should make sure that the creatures can't get in here anymore. Lets crumble the wall with the bomb!",
+		"buttons":[
+			{
+				"text":"Place the bomb.",
+				"target":-1
+			}
+		]
+	}
+]

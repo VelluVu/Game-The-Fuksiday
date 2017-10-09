@@ -1,0 +1,11 @@
+[
+	{
+		"text": "Player:\nIm not entering unprepared.",
+		"buttons":[
+			{
+				"text":">>>>>",
+				"target":-1
+			}
+		]
+	}
+]
