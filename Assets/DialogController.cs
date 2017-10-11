@@ -39,6 +39,7 @@ public class DialogController : MonoBehaviour {
 	}
 
 	private void clickButton(int button) {
+		//Run code from ArrayList results if the clicked button has a result specified
 		if (dialog.GetButtons (page) [button].GetResult () != null) {
 			foreach (KeyValuePair<string, UnityEngine.Events.UnityAction> kv in results) {
 				if (kv.Key.Equals (dialog.GetButtons (page) [button].GetResult ())) {
@@ -46,6 +47,7 @@ public class DialogController : MonoBehaviour {
 				}
 			}
 		}
+		//Button target page -1 is used to exit the dialog and return to gameplay.
 		if (buttonTargets [button] == -1) {
 			ExitDialog ();
 		} else {
@@ -70,6 +72,7 @@ public class DialogController : MonoBehaviour {
 	}
 
 	public void ExitDialog() {
+		//Close the dialog and switch back to normal gameplay
 		this.page = -1;
 		GameController.SetCanvas (GameController.GAMECANVAS);
 		this.dialog = null;
@@ -77,17 +80,17 @@ public class DialogController : MonoBehaviour {
 	}
 
 	private void showPage(int page) {
-		//Debug.Log (dialog.GetText(1));
 		this.page = page;
 		dialogText.text = dialog.GetText (page);
 		for (int i = 0; i<3; i++) {
+			//Disable all response buttons
 			buttons [i].enabled = false;
 			buttonImage [i].enabled = false;
 			buttonTexts [i].text = "";
 
 		}
-
 		for (int i = 0; i < dialog.GetButtons (page).Length; i++) {
+			//Re-enable response buttons required by the current dialog page
 			DialogButton button = dialog.GetButtons(page) [i];
 			setButton (button.GetText (), i, button.GetTarget ());
 			buttons [i].enabled = true;
@@ -97,6 +100,7 @@ public class DialogController : MonoBehaviour {
 	}
 
 	private void setButton(string text, int button, int targetPage) {
+		//Set a target page and a text for a dialog response button
 		buttonTexts [button].text = text;
 		buttonTargets [button] = targetPage;
 	}

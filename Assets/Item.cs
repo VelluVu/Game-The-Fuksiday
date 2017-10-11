@@ -6,7 +6,7 @@ public class Item : MonoBehaviour {
 
 	public int id;
 	public string visibleName;
-
+	//items and ID
 	public static int WRENCH = 0;
 	public static int OIL_CAN = 1;
 	public static int LEVER = 2;

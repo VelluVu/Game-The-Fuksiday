@@ -1,6 +1,6 @@
 [
 	{
-		"text": "Player:\nI should make a bomb first before I head down to the basement.",
+		"text": "Player:\nI should make a bomb first before I ascend further into to the basement.",
 		"buttons":[
 			{
 				"text":">>>>>",
@@ -9,19 +9,46 @@
 		]
 	},
 	{
-		"text": "Player:\nI wonder what came first.",
+		"text": "Player:\nI wonder what I should do..",
 		"buttons":[
 			{
-				"text":"Put hesustape into the gunpowder and seal it off with toiletpaperroll.",
+				"text":"Put hesustape to gunpowder..",
+				"target":2
+			},
+			{
+				"text":"Put toiletpaperroll to hesustape..",
 				"target":3
 			},
 			{
-				"text":"Put toiletpaperroll into the hesustape and seal it off with gunpowder.",
-				"target":3
-			},
-			{
-				"text":"Put gunpowder into the toiletpaperroll and seal it off with hesustape.",
+				"text":"Put gunpowder to toiletpaperroll..",
 				"target":4
+			}
+		]
+	},
+	{
+		"text": "Player:\n...",
+		"buttons":[
+			{
+				"text":"..seal it with toiletpaperroll.",
+				"target":5
+			}
+		]
+	},
+	{
+		"text": "Player:\n...",
+		"buttons":[
+			{
+				"text":"..seal it with gunpowder.",
+				"target":5
+			}
+		]
+	},
+	{
+		"text": "Player:\n...",
+		"buttons":[
+			{
+				"text":"..seal it with hesustape.",
+				"target":6
 			}
 		]
 	},
@@ -30,7 +57,7 @@
 		"buttons":[
 			{
 				"text":"Try again",
-				"target":2
+				"target":1
 			}
 		]
 	},

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-
+	//Health of player
 	public float health = 100;
 
 	public AudioClip pain;
@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
 	public void TakeDamage(float amount)
 	{
+		//add sound on damage take
 		source.PlayOneShot (pain, 1F);
 		health -= amount;
 		if (health <= 0 && GameController.GetPlayer().IsAlive()) {

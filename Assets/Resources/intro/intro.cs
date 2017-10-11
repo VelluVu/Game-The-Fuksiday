@@ -109,7 +109,7 @@ public class intro : MonoBehaviour {
 			text2.text = "Today is your first day at Helsinki Metropolia University of Applied Sciences in Leppävaara.";
 		}
 		if (time > 46.0f) {
-			skipIntro ();
+			skipIntro (); //Exit the intro sequence and load the GameWorld scene.
 		}
 	}
 }

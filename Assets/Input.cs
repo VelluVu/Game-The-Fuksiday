@@ -10,7 +10,7 @@ public class Input : MonoBehaviour {
 	public const int RIGHT = 2;
 	public const int UP = 3;
 	public const int DOWN = 4;
-
+	//directions
 	static PointerController bUp;
 	static PointerController bDown;
 	static PointerController bLeft;
@@ -34,7 +34,7 @@ public class Input : MonoBehaviour {
 	public static void SetBlockInput(bool blockInput) {
 		Input.blockInput = blockInput;
 	}
-
+	//checks if button is pressed
 	public static bool GetPressed(int btn_id){
 		if (blockInput)
 			return false;

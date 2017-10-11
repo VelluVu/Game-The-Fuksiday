@@ -8,13 +8,15 @@ public class EnemyHealth : MonoBehaviour {
 
 	private AudioSource source3;
 
-	public float enemyHealth = 100;
-
-	public void EnemyTakeDamage(float amount)
+	public float enemyHealth;
+	//enemy health and damages it + plays sound.
+	public virtual void EnemyTakeDamage(float amount)
 	{
+		GetComponentInParent<Enemy> ().DamageAnimation ();
 		source3.PlayOneShot (meowsInPain, 1F);
 		enemyHealth -= amount;
 		if (enemyHealth <= 0) {
+			//destroy gameobject when health reach 0 or less
 			Destroy (gameObject);
 		}
 	}
