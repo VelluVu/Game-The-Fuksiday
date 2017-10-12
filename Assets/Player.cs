@@ -262,6 +262,7 @@ public class Player : MonoBehaviour
 			// play shoot sound when do ranged attack
 			source.PlayOneShot (shootSound, 1F);
 			//if saved direction is Down creates arrow object from prefabs and pushes its rigidbody negative y axis
+			anim.SetTrigger("Shoot");
 			if (directionD == true) {
 				GameObject newArrowObjDown = Instantiate (arrowObjDown, transform.position, transform.rotation);
 				newArrowObjDown.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (0f, -150f));

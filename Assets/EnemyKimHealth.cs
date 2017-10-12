@@ -8,9 +8,10 @@ public class EnemyKimHealth : EnemyHealth {
 
 	private AudioSource source4;
 
-
+	//enemy health if less than zero destroy gameobject
 	public override void EnemyTakeDamage(float amount)
 	{
+		GetComponentInParent<Enemy> ().DamageAnimation ();
 		source4.PlayOneShot (enemyPainSound, 1F);
 		enemyHealth -= amount;
 		if (enemyHealth <= 0) {

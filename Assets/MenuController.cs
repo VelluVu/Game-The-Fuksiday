@@ -18,8 +18,7 @@ public class MenuController : MonoBehaviour {
 		startButton.onClick.AddListener(() => startGame());
 		exitButton.onClick.AddListener(() => exitGame());
 	}
-	
-	// Update is called once per frame
+
 	void startGame () {
 		SceneManager.LoadScene ("Intro");
 	}
@@ -28,6 +27,7 @@ public class MenuController : MonoBehaviour {
 	}
 
 	void Update() {
+		//Slowly rotate the background image
 		bg.transform.Rotate (new Vector3(0,0,2f*Time.deltaTime));
 	}
 }

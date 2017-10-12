@@ -12,9 +12,4 @@ public class EnemyKim : Enemy {
 			collision.gameObject.SendMessage ("TakeDamage", 25, SendMessageOptions.DontRequireReceiver);
 		Debug.Log ("KIM hits player");
 	}
-	
-	void Reset ()
-	{
-		speed = 0.5f;
-	}
 }

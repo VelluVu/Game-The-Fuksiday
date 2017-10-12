@@ -36,6 +36,7 @@ public class DialogController : MonoBehaviour {
 
 		results = new ArrayList ();
 		results.Add (new KeyValuePair<string, UnityEngine.Events.UnityAction> ("jumpsuit", () => GameController.GetPlayer().AddToInventory(GameController.GetAllItems()[Item.JUMPSUIT])));
+		results.Add (new KeyValuePair<string, UnityEngine.Events.UnityAction> ("victory", () => GameController.Victory()));
 	}
 
 	private void clickButton(int button) {
@@ -44,6 +45,7 @@ public class DialogController : MonoBehaviour {
 			foreach (KeyValuePair<string, UnityEngine.Events.UnityAction> kv in results) {
 				if (kv.Key.Equals (dialog.GetButtons (page) [button].GetResult ())) {
 					kv.Value.Invoke ();
+					Debug.Log ("asdasd");
 				}
 			}
 		}

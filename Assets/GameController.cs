@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class GameController : MonoBehaviour
 	public const int DIALOGCANVAS = 1;
 	public const int DEATHCANVAS = 2;
 	public const int VICTORYCANVAS = 3;
+
+	Button victoryButton;
+	Button deathButton;
+
+	static bool bombPlanted = false;
 
 	private static List<Canvas> canvases;
 
@@ -18,6 +24,7 @@ public class GameController : MonoBehaviour
 	static float textTimer = 0.0f;
 	Text output;
 	void Start() {
+		bombPlanted = false;
 		canvases = new List<Canvas> ();
 		canvases.Add (GameObject.Find ("Canvas").GetComponent<Canvas> ());
 		canvases.Add (GameObject.Find ("DialogCanvas").GetComponent<Canvas> ());
@@ -27,7 +34,11 @@ public class GameController : MonoBehaviour
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		dc.StartDialog (new DialogLoader ().LoadJson ("IntroDialog"));
 
+		deathButton = GameObject.Find ("ButtonMenu").GetComponent<Button> ();
+		victoryButton = GameObject.Find ("VictoryButton").GetComponent<Button> ();
 
+		deathButton.onClick.AddListener (() => SceneManager.LoadScene ("menu"));
+		victoryButton.onClick.AddListener (() => SceneManager.LoadScene ("menu"));
 
 		allItems = new List<Item> ();
 		allItems.Add (GameObject.Find ("Wrench").GetComponent<Item> ());
@@ -54,17 +65,20 @@ public class GameController : MonoBehaviour
 
 	// Trying to make victory happen when KIM is dead and bomb has been planted
 	public static void Victory() {
-		if (GameObject.Find ("KIMyonBoss") == null && GameObject.Find ("DialogTrigger PlantBomb") == null) { //.GetComponent<DialogTrigger> () == 0; {
-			SetCanvas (VICTORYCANVAS);
-		}
+		SetCanvas (VICTORYCANVAS);
+		bombPlanted = true;
 	}
 
 	public static void SetCanvas(int canvas) {
+		if (bombPlanted) {
+			return;
+		}
 		Debug.Log (canvas);
 		foreach (Canvas c in canvases) {
 			c.enabled = false;
 		}
 		canvases [canvas].enabled = true;
+		Debug.Log ("Canvas set to " + canvas);
 	}
 
 	public static Player GetPlayer() {

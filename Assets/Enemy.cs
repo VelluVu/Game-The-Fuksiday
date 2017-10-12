@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour {
 	float timeSinceDamage = 1.0f;
 	float timeSinceAttack = 0.0f;
 
+	public int damage = 10;
+
 	void Awake() {
 		
 	}

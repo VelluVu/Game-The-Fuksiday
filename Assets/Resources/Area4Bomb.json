@@ -13,7 +13,8 @@
 		"buttons":[
 			{
 				"text":"Place the bomb.",
-				"target":-1
+				"target":-1,
+				"result":"victory"
 			}
 		]
 	}
